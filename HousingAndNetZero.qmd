@@ -45,7 +45,14 @@ GreenhouseGasProp_Long$year <- as.numeric(GreenhouseGasProp_Long$year)
 
 ggplot(GreenhouseGasProp_Long, aes(x=year, y=percent,fill = Sector)) + geom_area()
 
+GreenhouseGasTotal_Long <- pivot_longer(GreenhouseGasTotal,
+                                       cols = 2:34, 
+                                       names_to = "year",
+                                       values_to = "total")
 
+GreenhouseGasTotal_Long$year <- as.numeric(GreenhouseGasTotal_Long$year)
+
+ggplot(GreenhouseGasTotal_Long, aes(x=year, y=total,fill = Sector)) + geom_area()
 
 ```
 
