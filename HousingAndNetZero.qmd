@@ -1,5 +1,5 @@
 ---
-title: "How Green Is Your House?"
+title: "Housing and Net-Zero"
 author: "Professor Adam Dennett - @adam_dennett"
 institute: Bartlett Centre for Advanced Spatial Analysis, University College London
 date: today
@@ -20,9 +20,34 @@ editor: visual
 slide-number: true
 ---
 
-## Quarto
+## UK CO2 Emissions
 
 Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+
+```{r}
+library(tidyverse)
+library(readxl)
+library(ggplot2)
+
+#download UK Greenhouse Gas Data from here: https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2022
+
+#data below taken from here: https://assets.publishing.service.gov.uk/media/65c0d17663a23d0013c821ea/final-greenhouse-gas-emissions-tables-2022.xlsx
+
+GreenhouseGasProp <- read_excel("UK_CO2.xlsx", sheet=3)
+GreenhouseGasTotal <- read_excel("UK_CO2.xlsx", sheet=4)
+
+GreenhouseGasProp_Long <- pivot_longer(GreenhouseGasProp,
+                                       cols = 2:34, 
+                                       names_to = "year",
+                                       values_to = "percent")
+
+GreenhouseGasProp_Long$year <- as.numeric(GreenhouseGasProp_Long$year)
+
+ggplot(GreenhouseGasProp_Long, aes(x=year, y=percent,fill = Sector)) + geom_area()
+
+
+
+```
 
 ## Bullets
 
