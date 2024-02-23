@@ -1,0 +1,171 @@
+---
+title: "Building Energy Performance Analysis"
+author: "Adam Dennett"
+date: "2024-02-22"
+output: html_document
+---
+
+## Downloading EPC Data using the API
+
+The code below (translated into R from the python examples given here: <https://epc.opendatacommunities.org/docs/api/domestic>) will download all of the data for a particular local authority of interest:
+
+```{r}
+library(httr)
+library(here)
+library(janitor)
+
+source("keys.r")
+
+# Page size (max 5000)
+query_size <- 5000
+# Output file name
+#output_file <- 'output.csv'
+output_file <- here("content", "teaching", "2024-02-20-EPC_Data", "data", "output.csv")
+
+# Base url and example query parameters
+base_url <- 'https://epc.opendatacommunities.org/api/v1/domestic/search'
+
+#this parameter specifies a particular local authority
+query_params <- list(size = query_size, `local-authority` = 'E07000228')
+
+# Set up authentication
+headers <- c(
+  'Accept' = 'text/csv',
+  'Authorization' = epc_auth
+)
+
+# Keep track of whether we have made at least one request for CSV headers and search-after
+first_request <- TRUE
+# Keep track of search-after from previous request
+search_after <- NULL
+
+# Open a connection to write to the output file
+file_conn <- file(output_file, "w")
+
+# Loop over entries in query blocks of up to 5000 to write all the data into a file
+while (!is.null(search_after) || first_request) {
+  # Only set search-after if this isn't the first request
+  if (!first_request) {
+    query_params[["search-after"]] <- search_after
+  }
+  
+  # Make request
+  response <- GET(url = base_url, query = query_params, add_headers(.headers=headers))
+  response_body <- content(response, as = "text")
+  search_after <- headers(response)$`X-Next-Search-After`
+  
+  # For CSV data, only keep the header row from the first response
+  if (!first_request && response_body != "") {
+    response_body <- strsplit(response_body, "\n")[[1]][-1]
+  }
+  
+  # Write received data
+  writeLines(response_body, file_conn)
+  
+  first_request <- FALSE
+}
+
+# Close the file connection
+close(file_conn)
+```
+
+Read the CSV file back in to your environment
+
+```{r}
+library(tidyverse)
+
+epc_data <- read_csv(here("content", "teaching", "2024-02-20-EPC_Data", "data", "output.csv")) %>% 
+  clean_names()
+```
+
+## Get UPRN Data from the OS API
+
+The osdatahub package makes this much easier to achieve.
+
+```{r}
+library(osdatahub)
+library(zip)
+
+#API key - although this isn't needed for the open data
+key <- os_auth
+
+#get a list of the open datasets
+list_os_opendata()
+
+#we're interested in the OpenUPRN dataset, so get all of the relevant info into an object
+uprn = list_os_opendata('OpenUPRN')
+
+#opening up the object, can see that we want the csv, which is the first entry
+uprn$fileName[1]
+
+#now we can download it:
+download_os_opendata(uprn, 
+                     file_name = uprn$fileName[1], 
+                     output_dir = tempdir())
+
+#get the path to the zipfile you have just downloaded
+zip_file <- file.path(tempdir(), uprn$fileName[1])
+#find out what the name of the csv is within the zipfile
+zip_contents <- zip_list(zip_file)
+zip_contents$filename[3]
+csv_file <- zip_contents$filename[3]
+
+# Unzip the file
+unzip(zipfile = zip_file, exdir = tempdir())
+
+# Read data from the CSV file
+uprn_data <- read_csv(file.path(tempdir(), csv_file)) %>% 
+  clean_names()
+
+```
+
+Get some Local Authority Boundaries
+
+```{r}
+library(geojsonsf)
+library(tmap)
+
+LAD_sf <- geojson_sf("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2023_Boundaries_UK_BFC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson") 
+
+qtm(LAD_sf)
+
+Local_sf <- LAD_sf %>% filter(LAD23CD == "E07000228")
+
+qtm(Local_sf)
+```
+
+Now we can join some coordinates to our EPC data to enable some mapping
+
+```{r}
+str(epc_data)
+str(uprn_data)
+
+#filter out all of the rows without uprns (and therefore coordinates)
+epc_coords <- left_join(epc_data, uprn_data, by = join_by(uprn == uprn)) %>% 
+  filter(!is.na(uprn))
+
+write_csv(epc_coords, here("content", "teaching", "2024-02-20-EPC_Data", "data", "epc_coords.csv"))
+```
+
+Now we can map it!
+
+```{r}
+library(sf)
+
+epc_sf <- st_as_sf(epc_coords, coords=c("x_coordinate", "y_coordinate"), crs=27700)
+
+st_crs(Local_sf)
+Local_sf <- st_transform(Local_sf, 27700)
+
+#clip it as some weird places
+epc_sf_clip <- epc_sf[Local_sf,]
+
+
+```
+
+```{r}
+library(tmap)
+
+tmap_mode("plot")
+qtm(epc_sf_clip)
+```
