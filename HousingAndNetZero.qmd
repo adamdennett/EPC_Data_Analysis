@@ -75,8 +75,6 @@ EU_Co2Housing_Long <- pivot_longer(EU_Co2Housing,
                                        names_to = "year",
                                        values_to = "total")
 
-# 
-# 
 # ggplot(EU_Co2Housing_Long, aes(x=year, y=total, group = Country, colour = Country)) + geom_line() + labs(x = "Year", y = "Million tons carbon dioxide equivalent (MtCO2e)", title = "EU Residential Greenhouse Gas Emissions")
 
 options(scipen=10000)
@@ -101,3 +99,15 @@ ggplot(EU_Co2Housing_pp) + geom_col(aes(y= reorder(Country, Res_CO2_per_Person),
 Even after adjusting for population, UK housing stock is responsible for emitting far more CO2 than housing in very cold countries like Iceland, Sweden, Norway and Finland
 
 Source: Eurostat + UK Government
+
+## Leaky Homes
+
+In 2021, the National Housing Federation reported that a combination of gas central heating and poor insulation meant that as heat easily leaks from many of the UK's homes, it requires even more gas to heat them.
+
+The average family or household in England is currently producing more CO^2^ every year by just living in their home than they are by driving. 
+
+Three in every five (60%) homeowners don’t think their home energy use has much of an impact on carbon emissions. More than one in four homeowners (28%) have no plans to make “eco-upgrades” to their homes in the next ten years.
+
+https://www.housing.org.uk/news-and-blogs/news/englands-leaky-homes-greater-threat-to-climate-than-cars/
+
+##
