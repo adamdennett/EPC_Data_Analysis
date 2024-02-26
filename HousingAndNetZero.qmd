@@ -54,9 +54,9 @@ ggplot(GreenhouseGasTotal_Long, aes(x=year, y=total,fill = Sector)) + geom_area(
 
 ```
 
-Heating (and , increasingly, cooling) Residential Buildings currently accounts for about 13.7% of the UK's total greenhouse gas emissions.
+* Heating (and , increasingly, cooling) Residential Buildings currently accounts for about 13.7% of the UK's total greenhouse gas emissions.
 
-While Greenhouse Gas emissions have reduced since 1990 (largely thanks to renewables becoming more important in generating electricity) housing is now responsible for a greater proportion of our total emissions than ever before - producing around 56 million tons of CO^2^ per year
+* While Greenhouse Gas emissions have reduced since 1990 (largely thanks to renewables becoming more important in generating electricity) housing is now responsible for a greater proportion of our total emissions than ever before - producing around 56 million tons of CO^2^ per year
 
 ## UK Housing and CO^2^ Emissions
 
@@ -82,7 +82,7 @@ ggplot(EU_Co2Housing22) + geom_col(aes(y= reorder(Country, Year_2022), x=Year_20
 
 ```
 
-Housing in the UK is some of the worst, overall, in Europe for emitting greenhouse gases. 
+* Housing in the UK is some of the worst, overall, in Europe for emitting greenhouse gases. 
 
 Source: Eurostat + UK Government
 
@@ -96,17 +96,17 @@ ggplot(EU_Co2Housing_pp) + geom_col(aes(y= reorder(Country, Res_CO2_per_Person),
 
 ```
 
-Even after adjusting for population, UK housing stock is responsible for emitting far more CO2 than housing in very cold countries like Iceland, Sweden, Norway and Finland
+* Even after adjusting for population, UK housing stock is responsible for emitting far more CO2 than housing in very cold countries like Iceland, Sweden, Norway and Finland
 
 Source: Eurostat + UK Government
 
 ## Leaky Homes
 
-In 2021, the National Housing Federation reported that a combination of gas central heating and poor insulation meant that as heat easily leaks from many of the UK's homes, it requires even more gas to heat them.
+* In 2021, the National Housing Federation reported that a combination of gas central heating and poor insulation meant that as heat easily leaks from many of the UK's homes, it requires even more gas to heat them.
 
-The average family or household in England is currently producing more CO^2^ every year by just living in their home than they are by driving. 
+* The average family or household in England is currently producing more CO^2^ every year by just living in their home than they are by driving. 
 
-Three in every five (60%) homeowners don’t think their home energy use has much of an impact on carbon emissions. More than one in four homeowners (28%) have no plans to make “eco-upgrades” to their homes in the next ten years.
+* Three in every five (60%) homeowners don’t think their home energy use has much of an impact on carbon emissions. More than one in four homeowners (28%) have no plans to make “eco-upgrades” to their homes in the next ten years.
 
 https://www.housing.org.uk/news-and-blogs/news/englands-leaky-homes-greater-threat-to-climate-than-cars/
 
