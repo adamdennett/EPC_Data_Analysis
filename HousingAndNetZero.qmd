@@ -54,9 +54,11 @@ ggplot(GreenhouseGasTotal_Long, aes(x=year, y=total,fill = Sector)) + geom_area(
 
 ```
 
-* Heating (and , increasingly, cooling) Residential Buildings currently accounts for about 13.7% of the UK's total greenhouse gas emissions.
+-   The UK Government has legally binding targets under the Climate Change Act 2008 to reach 'net zero' carbon emissions by 2050
 
-* While Greenhouse Gas emissions have reduced since 1990 (largely thanks to renewables becoming more important in generating electricity) housing is now responsible for a greater proportion of our total emissions than ever before - producing around 56 million tons of CO^2^ per year
+-   Heating (and , increasingly, cooling) Residential Buildings currently accounts for about 13.7% of the UK's total greenhouse gas emissions
+
+-   While Greenhouse Gas emissions have reduced since 1990 (largely thanks to renewables becoming more important in generating electricity) housing is now responsible for a greater proportion of our total emissions than ever before - producing around 56 million tons of CO^2^ per year
 
 ## UK Housing and CO^2^ Emissions
 
@@ -82,9 +84,9 @@ ggplot(EU_Co2Housing22) + geom_col(aes(y= reorder(Country, Year_2022), x=Year_20
 
 ```
 
-* Housing in the UK is some of the worst, overall, in Europe for emitting greenhouse gases. 
-
 Source: Eurostat + UK Government
+
+-   Housing in the UK is some of the worst, overall, in Europe for emitting greenhouse gases.
 
 ## UK Housing and CO^2^ Emissions
 
@@ -96,18 +98,89 @@ ggplot(EU_Co2Housing_pp) + geom_col(aes(y= reorder(Country, Res_CO2_per_Person),
 
 ```
 
-* Even after adjusting for population, UK housing stock is responsible for emitting far more CO2 than housing in very cold countries like Iceland, Sweden, Norway and Finland
-
 Source: Eurostat + UK Government
+
+-   Even after adjusting for population, UK housing stock is responsible for emitting far more CO2 than housing in very cold countries like Iceland, Sweden, Norway and Finland
 
 ## Leaky Homes
 
-* In 2021, the National Housing Federation reported that a combination of gas central heating and poor insulation meant that as heat easily leaks from many of the UK's homes, it requires even more gas to heat them.
+::: columns
+::: {.column width="50%"}
+-   In 2021, the National Housing Federation reported that a combination of gas central heating and poor insulation meant that as heat easily leaks from many of the UK's homes, it requires even more gas to heat them.
 
-* The average family or household in England is currently producing more CO^2^ every year by just living in their home than they are by driving. 
+-   The average family or household in England is currently producing more CO^2^ every year by just living in their home than they are by driving their car!
 
-* Three in every five (60%) homeowners don’t think their home energy use has much of an impact on carbon emissions. More than one in four homeowners (28%) have no plans to make “eco-upgrades” to their homes in the next ten years.
+-   Three in every five (60%) homeowners don't think their home energy use has much of an impact on carbon emissions. More than one in four homeowners (28%) have no plans to make "eco-upgrades" to their homes in the next ten years.
+:::
 
-https://www.housing.org.uk/news-and-blogs/news/englands-leaky-homes-greater-threat-to-climate-than-cars/
+::: {.column width="50%"}
+[![Heat Loss from a House](images/3096.avif){fig-align="right"}](https://www.theguardian.com/commentisfree/2021/sep/28/britain-homes-energy-crisis-governments-insulation-low-carbon-heating) <https://www.housing.org.uk/news-and-blogs/news/englands-leaky-homes-greater-threat-to-climate-than-cars/>
+:::
+:::
 
-##
+## How do we know how leaky our home is?
+
+::: columns
+::: {.column width="50%"}
+-   Energy Performance Certificates were introduced in England and Wales in August 2007
+-   A valid certificate (they last for 10 years) is now required for any property sold or rented in the UK
+-   Every property gets a current rating - A to G - alongside a potential rating, which relates to what it could achieve with better insulation, double glazing, etc.
+-   EPCs are created by surveyors who use something called the 'Standard Assessment Procedure' (SAP) to rate the building. SAP accounts for things like:
+    -   Size of building
+    -   Age of Building
+    -   Building materials used
+    -   Glazing
+    -   Heating and hot water type
+    -   Type of lighting
+-   The SAP is an imperfect science and prone to human error, but it's the best method currently available
+:::
+
+::: {.column width="50%"}
+[![EPC Certificate](images/EP_Cert.png){fig-align="center" width="70%"}](https://www.gov.uk/find-energy-certificate)
+:::
+:::
+
+## What does the government want?
+
+-   The Clean Growth Strategy was published in October 2017 and includes several targets to improve energy efficiency:
+    -   to upgrade all fuel poor homes to Energy Performance Certificate (EPC) band C by 2030;
+    -   to upgrade as many homes as possible to EPC band C by 2035
+    
+But is this enough??
+
+<https://www.gov.uk/government/publications/clean-growth-strategy>
+
+## How do we make our homes more energy efficient?
+
+-   
+
+
+
+## What needs to be done? Insulate Britain
+
+::: columns
+::: {.column width="50%"}
+-   Pressure Group highlights that UK government doesn't have a long-term strategy or funding mechanism to upgrade/retrofit homes to meet our climate committments
+-   Estimates that 1.5 homes per minute need to be retrofitted up until 2050 to hit our legally-binding net-zero target
+:::
+
+::: {.column width="50%"}
+[![Insulate Britain](images/InsulateBritain.jpg){fig-align="center" width="100%"}](https://insulatebritain.com/)
+
+<https://insulatebritain.com/>
+:::
+:::
+
+## What other benefits can retrofitting our homes bring?
+
+-   Health benefits. The Building Research Establishment estimates that poor housing costs the NHS £1.4bn per year in additional treatments, with excess cold causing the most problems
+
+<https://bregroup.com/news-insights/the-cost-of-poor-housing-to-the-nhs/>
+
+## What are the barriers to change?
+
+## 
+
+
+
+
