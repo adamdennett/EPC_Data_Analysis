@@ -20,6 +20,7 @@ editor: visual
 slide-number: true
 ---
 
+
 ## UK CO^2^ Emissions
 
 ::: columns
@@ -37,63 +38,25 @@ slide-number: true
 :::
 
 ::: {.column width="60%"}
-```{r}
-library(tidyverse)
-library(readxl)
-library(ggplot2)
 
-#download UK Greenhouse Gas Data from here: https://www.gov.uk/government/statistics/final-uk-greenhouse-gas-emissions-national-statistics-1990-to-2022
+::: {.cell}
+::: {.cell-output-display}
+![](HousingAndNetZero_files/figure-revealjs/unnamed-chunk-1-1.png){width=960}
+:::
+:::
 
-#data below taken from here: https://assets.publishing.service.gov.uk/media/65c0d17663a23d0013c821ea/final-greenhouse-gas-emissions-tables-2022.xlsx
-
-GreenhouseGasProp <- read_excel("data/UK_CO2.xlsx", sheet=3)
-GreenhouseGasTotal <- read_excel("data/UK_CO2.xlsx", sheet=4)
-
-GreenhouseGasProp_Long <- pivot_longer(GreenhouseGasProp,
-                                       cols = 2:34, 
-                                       names_to = "year",
-                                       values_to = "percent")
-
-#GreenhouseGasProp_Long$year <- as.numeric(GreenhouseGasProp_Long$year)
-
-#ggplot(GreenhouseGasProp_Long, aes(x=year, y=percent,fill = Sector)) + geom_area()
-
-GreenhouseGasTotal_Long <- pivot_longer(GreenhouseGasTotal,
-                                       cols = 2:34, 
-                                       names_to = "year",
-                                       values_to = "total")
-
-GreenhouseGasTotal_Long$year <- as.numeric(GreenhouseGasTotal_Long$year)
-
-ggplot(GreenhouseGasTotal_Long, aes(x=year, y=total,fill = Sector)) + geom_area() + labs(x = "Year", y = "Million tons carbon dioxide equivalent (MtCO2e)", title = "UK Greenhouse Gas Emissions by Source Category")
-
-```
 :::
 :::
 
 ## UK Housing and CO^2^ Emissions
 
-```{r}
-#get some data on how much better Europe is than the UK- https://ec.europa.eu/eurostat/databrowser/view/ENV_AC_AINAH_R2__custom_10056783/default/table?lang=en
 
-library(janitor)
+::: {.cell}
+::: {.cell-output-display}
+![](HousingAndNetZero_files/figure-revealjs/unnamed-chunk-2-1.png){width=960}
+:::
+:::
 
-EU_Co2Housing <- read_csv("data/EU_CO2_Housing.csv")
-
-EU_Co2Housing22 <- EU_Co2Housing[,c(1,14)]
-colnames(EU_Co2Housing22) <- c("Country", "Year_2022")
-
-EU_Co2Housing_Long <- pivot_longer(EU_Co2Housing,
-                                       cols = 2:14, 
-                                       names_to = "year",
-                                       values_to = "total")
-
-# ggplot(EU_Co2Housing_Long, aes(x=year, y=total, group = Country, colour = Country)) + geom_line() + labs(x = "Year", y = "Million tons carbon dioxide equivalent (MtCO2e)", title = "EU Residential Greenhouse Gas Emissions")
-
-options(scipen=10000)
-ggplot(EU_Co2Housing22) + geom_col(aes(y= reorder(Country, Year_2022), x=Year_2022, fill = Year_2022), show.legend = FALSE) + labs(y = "Country", x = "Tons carbon dioxide equivalent (MtCO2e)", title = "EU Residential Heating/Cooling Emissions") + scale_fill_viridis_c(option = "magma")
-
-```
 
 Source: Eurostat + UK Government
 
@@ -101,13 +64,13 @@ Source: Eurostat + UK Government
 
 ## UK Housing and CO^2^ Emissions
 
-```{r}
-EU_Co2Housing_pp <- read_csv("data/EU_CO2_Housing_per_person.csv")
 
-options(scipen=10000)
-ggplot(EU_Co2Housing_pp) + geom_col(aes(y= reorder(Country, Res_CO2_per_Person), x=Res_CO2_per_Person, fill = Res_CO2_per_Person), show.legend = FALSE) + labs(y = "Country", x = "Tons carbon dioxide equivalent (MtCO2e) per person", title = "EU Residential Heating/Cooling Emissions Per Person") + scale_fill_viridis_c(option = "magma")
+::: {.cell}
+::: {.cell-output-display}
+![](HousingAndNetZero_files/figure-revealjs/unnamed-chunk-3-1.png){width=960}
+:::
+:::
 
-```
 
 Source: Eurostat + UK Government
 
@@ -286,3 +249,4 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 :::
 :::
+
