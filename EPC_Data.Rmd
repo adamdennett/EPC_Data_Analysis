@@ -18,14 +18,14 @@ source("keys.r")
 
 # Page size (max 5000)
 query_size <- 5000
-# Output file name
-#output_file <- 'output.csv'
+
+#I am using the Here package to put the CSV downloaded into a specific folder inside the current here() route - you will probably want to put yours somewhere else. Check there here package for details on how this works. 
 output_file <- here("content", "teaching", "2024-02-20-EPC_Data", "data", "output.csv")
 
 # Base url and example query parameters
 base_url <- 'https://epc.opendatacommunities.org/api/v1/domestic/search'
 
-#this parameter specifies a particular local authority
+#this parameter specifies a particular local authority - this is Mid-Sussex
 query_params <- list(size = query_size, `local-authority` = 'E07000228')
 
 # Set up authentication
@@ -125,10 +125,12 @@ Get some Local Authority Boundaries
 library(geojsonsf)
 library(tmap)
 
+#download these from the ONS Geoportal
 LAD_sf <- geojson_sf("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2023_Boundaries_UK_BFC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson") 
 
 qtm(LAD_sf)
 
+# filter for Mid-Sussex again
 Local_sf <- LAD_sf %>% filter(LAD23CD == "E07000228")
 
 qtm(Local_sf)
@@ -152,20 +154,25 @@ Now we can map it!
 ```{r}
 library(sf)
 
+#convert the csv with coordinates in it to an sf object
 epc_sf <- st_as_sf(epc_coords, coords=c("x_coordinate", "y_coordinate"), crs=27700)
 
+#set the CRS to british national grid
 st_crs(Local_sf)
 Local_sf <- st_transform(Local_sf, 27700)
 
-#clip it as some weird places
+#clip it as some weird places are in the dataset - data errors. 
 epc_sf_clip <- epc_sf[Local_sf,]
 
 
 ```
 
 ```{r}
+
+#try and map it with tmap
 library(tmap)
 
+# set to plot otherwise if you set to view, it will almost certainly crash. 
 tmap_mode("plot")
 qtm(epc_sf_clip)
 ```

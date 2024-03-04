@@ -120,8 +120,8 @@ Source: Eurostat + UK Government
 ::: {.column width="50%"}
 -   80% of the homes we will be living in in 2050 are already built now, so we need to focus on improving the housing stock we already have
 -   The Clean Growth Strategy was published in October 2017 and includes several targets to improve energy efficiency:
-    -   to upgrade all fuel poor homes to Energy Performance Certificate (EPC) band C by 2030;
-    -   to upgrade as many homes as possible to EPC band C by 2035
+    -   to upgrade all fuel poor homes to Energy Performance Certificate (EPC) **band C** by 2030;
+    -   to upgrade as many homes as possible to EPC **band C** by 2035
 
 But is this enough and how are they going to achieve it?
 :::
@@ -133,7 +133,7 @@ But is this enough and how are they going to achieve it?
 
 <https://www.gov.uk/government/publications/clean-growth-strategy>
 
-## How do we make our homes more energy efficient and are there any other benefits or drawbacks?
+## Making homes more energy efficient + additional benefits & challenges
 
 ::: columns
 ::: {.column width="50%"}
@@ -174,6 +174,8 @@ But is this enough and how are they going to achieve it?
 -   If we can understand *where* the problem is most acute and how much we might need to do in different places, we can begin to put pressure on the government or the local countil to make better policy / invest funds in a more targeted way
 
 -   If we can explain what the problem is in our local area, we stand a better chance of trying to solve it
+
+-   We can contact our local councilors and MPs to ask them make improving housing in our area more of a priority
 :::
 
 ::: {.column width="50%"}
@@ -187,52 +189,91 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ::: columns
 ::: {.column width="50%"}
+-   The Department for Levelling Up, Housing and Communities (DLUHC) collects and maintains data on every Energy Performance Certificate issued in England and Wales. The database is available as Open Data for anyone to explore and analyse.
 
--   The Department for Levelling Up, Housing and Communities (DLUHC) collects and maintains data on every Energy Performance Certificate issued in England and Wales. The database is available as Open Data for anyone to explore and analyse. 
-
--   The latest edition of the EPC dataset (Version 10) contains some 25 million records (some repeat entries) which equate to about 14 million residential properties in the England and Wales - just over 50% of the 26.7 million that exist. 
+-   The latest edition of the EPC dataset (Version 10) contains some 25 million records (some repeat entries) which equate to about 14 million residential properties in the England and Wales - just over 50% of the 26.7 million that exist.
 
 -   More recent entries to the EPC database feature a Unique Property Reference Number (UPRN) which enables us locate precisely where each property is located
-
 :::
 
 ::: {.column width="50%"}
-
 ![](images/EPC_Data.png){fig-align="center" width="100%"}
-
 :::
 :::
 
-## What we found
+## Some intitial analysis of the EPC dataset
 
 ::: columns
-::: {.column width="30%"}
-
--   Energy Efficiency is strongly correleated with the age of the property - older properties being much less energy efficient, more modern properties being far more energy efficient
-
+::: {.column width="40%"}
+-   We analysed 14m properties in the EPC dataset
+-   Energy Efficiency is strongly correleated with the age of the property - older properties are on average less energy efficient, more modern properties are more energy efficient
+-   Band C (69 and above) is the government target for efficient homes.
+    -   If your property was built after 2003, you have a very high probability of being band C or higher
+    -   As properties get older the variation in their efficiency gets greater, but the probability of being band C or above gets much lower.
+    -   Any property built before World War II has a high probabilty of being below band C
 :::
 
-::: {.column width="70%"}
-
+::: {.column width="60%"}
 ![](images/EPC_Age.png){fig-align="center" width="100%"}
-
 :::
 :::
 
-## What we found
+## Some intitial analysis of the EPC dataset
 
 ::: columns
 ::: {.column width="50%"}
+-   Tenure: Whether the house is owner-occupied, privately rented or socially rented is also very important - Social rented housing has far better energy efficiency than all other housing tenures
+-   Various reasons for this:
+    -   social landlords more conscious of the needs of residents, some large retrofit programmes
+    -   social housing more likely to be flats
+:::
 
+::: {.column width="50%"}
+![](images/EPC_Tenure.png){fig-align="center" width="100%"}
+:::
+:::
+
+## Some intitial analysis of the EPC dataset
+
+::: columns
+::: {.column width="50%"}
 -   The type of property - i.e. whether it is a flat, detached, semi-detached or terraced house is important (the fewer outside walls the better!)
--   Tenure: Whether the house is owner-occupied, privately rented or socially rented is also very important 
+-   Older detached housing with more external walls and larger floor areas has the worst energy efficieny - even some modern detached housing has poor energy efficiency (Bottom Right)
+-   Terraced flats and masionettes with fewer external walls and smaller floor areas have the best energy efficiency, with even older properties more likely to be rated C or above than some more modern terraced and semi-detached housing
+:::
+
+::: {.column width="50%"}
+![](images/EPC_Age_Type.png){fig-align="center" width="100%"}
+:::
+:::
+
+## Some intitial analysis of the EPC dataset
+
+-   Depending on which part of the country you are living in, you are more likely to be living in a particular type and size of property
+-   If we can account for the type, size, age and other characteristics of a property relative to energy efficiency, we can show where energy efficiency is better or worse than we would expect
+
+![](images/Morphology.png){fig-align="left" width="45%"}
+![](images/AvgFloorArea.png){fig-align="right" width="45%"}
+
+## Some intitial analysis of the EPC dataset
+
+::: columns
+::: {.column width="50%"}
+-   In this piece of analysis we built a statistical model that predicted building energy efficiency as a function of:
+    -   age
+    -   dwelling type
+    -   tenure
+    -   floor area
+    -   and which Local Authority the property was found in
+-   The map on the right shows, after controlling for the variables above, relative to Tower Hamlets (the local authority with the overall best Energy Efficiency in England), how many EPC points better or worse on average properties in each Local Authority are
+-   The map on the left shows where real average EPC values are lower/worse (<1 - red) or higher/better (>1 - orange to blue) than we might expect, given the housing stock mix. 
+    -    Properties within boroughs in Central London, in particular, Islington, Hackney and Hammersmith and Fulham perform worse than expected, alongside Harlow in Essex, Eastleigh in Hampshire, Norwich, Lincoln and Sunderland
 
 :::
 
 ::: {.column width="50%"}
-
-![](images/EPC_Tenure.png){fig-align="center" width="100%"}
-
+![](images/EPC_LAD_Intercepts_resids.png){fig-align="right" width="100%"}
+<https://www.ucl.ac.uk/bartlett/casa/publications/2023/may/casa-working-paper-233> 
 :::
 :::
 
@@ -242,11 +283,29 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ::: columns
 ::: {.column width="50%"}
+-   Investigate the Geography of Housing in your local area 
+    -   Housing from different periods can be dated by looking at the style of the architecture
+    -   Historic England have fantastic resources on the types of architectural styles common in different periods in the UK - <https://historicengland.org.uk/services-skills/education/images-by-theme/>     -   <https://heritagecalling.com/2019/11/15/a-brief-introduction-to-terraced-housing/>
+    -   <https://heritagecalling.com/2019/07/29/the-history-of-council-housing/>
+-   A field trip out to identify and different types of house and their characteristics and create a map of where different periods of house building are in the vicinity
 
 :::
 
 ::: {.column width="50%"}
-
+![](images/British_Housing.png){fig-align="right" width="80%"}<https://files.bregroup.com/bretrust/The-Housing-Stock-of-the-United-Kingdom_Report_BRE-Trust.pdf>
 :::
 :::
 
+
+## How can we investigate this in the classroom?
+
+-   National Libaray of Scotland - and unbelieveable resource for historic maps - e.g. Hassocks, 1909
+
+![](images/HassocksZoom25Inch1909.png){fig-align="centre" width="80%"}<https://maps.nls.uk/view/103670803>
+
+
+## How can we investigate this in the classroom?
+
+-   Maps from different periods can give clues as to when some of the older local properties might have been built - Hassocks 1937
+
+![](images/HassocksZoom25Inch1937.png){fig-align="centre" width="80%"}<https://maps.nls.uk/view/103670800>

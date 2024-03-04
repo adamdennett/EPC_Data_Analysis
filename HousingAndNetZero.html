@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.2.280">
 
   <meta name="author" content="Professor Adam Dennett - @adam_dennett">
-  <meta name="dcterms.date" content="2024-03-01">
+  <meta name="dcterms.date" content="2024-03-04">
   <title>Housing and Net-Zero</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -340,7 +340,7 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
     </div>
 </div>
 
-  <p class="date">March 1, 2024</p>
+  <p class="date">March 4, 2024</p>
 </section>
 <section id="uk-co2-emissions" class="slide level2">
 <h2>UK CO<sup>2</sup> Emissions</h2>
@@ -432,8 +432,8 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
 <li>80% of the homes we will be living in in 2050 are already built now, so we need to focus on improving the housing stock we already have</li>
 <li>The Clean Growth Strategy was published in October 2017 and includes several targets to improve energy efficiency:
 <ul>
-<li>to upgrade all fuel poor homes to Energy Performance Certificate (EPC) band C by 2030;</li>
-<li>to upgrade as many homes as possible to EPC band C by 2035</li>
+<li>to upgrade all fuel poor homes to Energy Performance Certificate (EPC) <strong>band C</strong> by 2030;</li>
+<li>to upgrade as many homes as possible to EPC <strong>band C</strong> by 2035</li>
 </ul></li>
 </ul>
 <p>But is this enough and how are they going to achieve it?</p>
@@ -447,8 +447,8 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
 </div>
 <p><a href="https://www.gov.uk/government/publications/clean-growth-strategy" class="uri">https://www.gov.uk/government/publications/clean-growth-strategy</a></p>
 </section>
-<section id="how-do-we-make-our-homes-more-energy-efficient-and-are-there-any-other-benefits-or-drawbacks" class="slide level2">
-<h2>How do we make our homes more energy efficient and are there any other benefits or drawbacks?</h2>
+<section id="making-homes-more-energy-efficient-additional-benefits-challenges" class="slide level2">
+<h2>Making homes more energy efficient + additional benefits &amp; challenges</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
@@ -494,6 +494,7 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
 <li><p>More or less energy efficient homes are not spread evenly across the country - some places and some types of neighbourhood are more or less likely to have energy efficient homes</p></li>
 <li><p>If we can understand <em>where</em> the problem is most acute and how much we might need to do in different places, we can begin to put pressure on the government or the local countil to make better policy / invest funds in a more targeted way</p></li>
 <li><p>If we can explain what the problem is in our local area, we stand a better chance of trying to solve it</p></li>
+<li><p>We can contact our local councilors and MPs to ask them make improving housing in our area more of a priority</p></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -523,14 +524,21 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
 </div>
 </div>
 </section>
-<section id="what-we-found" class="slide level2">
-<h2>What we found</h2>
+<section id="some-intitial-analysis-of-the-epc-dataset" class="slide level2">
+<h2>Some intitial analysis of the EPC dataset</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
+<div class="column" style="width:40%;">
 <ul>
-<li>Energy Efficiency is strongly correleated with the age of the property - older properties being much less energy efficient, more modern properties being far more energy efficient</li>
+<li>We analysed 14m properties in the EPC dataset</li>
+<li>Energy Efficiency is strongly correleated with the age of the property - older properties are on average less energy efficient, more modern properties are more energy efficient</li>
+<li>Band C (69 and above) is the government target for efficient homes.
+<ul>
+<li>If your property was built after 2003, you have a very high probability of being band C or higher</li>
+<li>As properties get older the variation in their efficiency gets greater, but the probability of being band C or above gets much lower.</li>
+<li>Any property built before World War II has a high probabilty of being below band C</li>
+</ul></li>
 </ul>
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="images/EPC_Age.png" style="width:100.0%"></p>
@@ -539,13 +547,17 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
 </div>
 </div>
 </section>
-<section id="what-we-found-1" class="slide level2">
-<h2>What we found</h2>
+<section id="some-intitial-analysis-of-the-epc-dataset-1" class="slide level2">
+<h2>Some intitial analysis of the EPC dataset</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
 <ul>
-<li>The type of property - i.e.&nbsp;whether it is a flat, detached, semi-detached or terraced house is important (the fewer outside walls the better!)</li>
-<li>Tenure: Whether the house is owner-occupied, privately rented or socially rented is also very important</li>
+<li>Tenure: Whether the house is owner-occupied, privately rented or socially rented is also very important - Social rented housing has far better energy efficiency than all other housing tenures</li>
+<li>Various reasons for this:
+<ul>
+<li>social landlords more conscious of the needs of residents, some large retrofit programmes</li>
+<li>social housing more likely to be flats</li>
+</ul></li>
 </ul>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -556,17 +568,89 @@ Professor Adam Dennett - <span class="citation" data-cites="adam_dennett">@adam_
 </div>
 </div>
 </section>
+<section id="some-intitial-analysis-of-the-epc-dataset-2" class="slide level2">
+<h2>Some intitial analysis of the EPC dataset</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>The type of property - i.e.&nbsp;whether it is a flat, detached, semi-detached or terraced house is important (the fewer outside walls the better!)</li>
+<li>Older detached housing with more external walls and larger floor areas has the worst energy efficieny - even some modern detached housing has poor energy efficiency (Bottom Right)</li>
+<li>Terraced flats and masionettes with fewer external walls and smaller floor areas have the best energy efficiency, with even older properties more likely to be rated C or above than some more modern terraced and semi-detached housing</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="images/EPC_Age_Type.png" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="some-intitial-analysis-of-the-epc-dataset-3" class="slide level2">
+<h2>Some intitial analysis of the EPC dataset</h2>
+<ul>
+<li>Depending on which part of the country you are living in, you are more likely to be living in a particular type and size of property</li>
+<li>If we can account for the type, size, age and other characteristics of a property relative to energy efficiency, we can show where energy efficiency is better or worse than we would expect</li>
+</ul>
+<p><img data-src="images/Morphology.png" style="width:45.0%" data-fig-align="left"> <img data-src="images/AvgFloorArea.png" style="width:45.0%" data-fig-align="right"></p>
+</section>
+<section id="some-intitial-analysis-of-the-epc-dataset-4" class="slide level2">
+<h2>Some intitial analysis of the EPC dataset</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>In this piece of analysis we built a statistical model that predicted building energy efficiency as a function of:
+<ul>
+<li>age</li>
+<li>dwelling type</li>
+<li>tenure</li>
+<li>floor area</li>
+<li>and which Local Authority the property was found in</li>
+</ul></li>
+<li>The map on the right shows, after controlling for the variables above, relative to Tower Hamlets (the local authority with the overall best Energy Efficiency in England), how many EPC points better or worse on average properties in each Local Authority are</li>
+<li>The map on the left shows where real average EPC values are lower/worse (&lt;1 - red) or higher/better (&gt;1 - orange to blue) than we might expect, given the housing stock mix.
+<ul>
+<li>Properties within boroughs in Central London, in particular, Islington, Hackney and Hammersmith and Fulham perform worse than expected, alongside Harlow in Essex, Eastleigh in Hampshire, Norwich, Lincoln and Sunderland</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/EPC_LAD_Intercepts_resids.png" style="width:100.0%" data-fig-align="right"> <a href="https://www.ucl.ac.uk/bartlett/casa/publications/2023/may/casa-working-paper-233" class="uri">https://www.ucl.ac.uk/bartlett/casa/publications/2023/may/casa-working-paper-233</a></p>
+</div>
+</div>
+</section>
 <section id="how-can-we-investigate-this-in-the-classroom" class="slide level2">
 <h2>How can we investigate this in the classroom?</h2>
 <div class="columns">
 <div class="column" style="width:50%;">
-
+<ul>
+<li>Investigate the Geography of Housing in your local area
+<ul>
+<li>Housing from different periods can be dated by looking at the style of the architecture</li>
+<li>Historic England have fantastic resources on the types of architectural styles common in different periods in the UK - <a href="https://historicengland.org.uk/services-skills/education/images-by-theme/" class="uri">https://historicengland.org.uk/services-skills/education/images-by-theme/</a> - <a href="https://heritagecalling.com/2019/11/15/a-brief-introduction-to-terraced-housing/" class="uri">https://heritagecalling.com/2019/11/15/a-brief-introduction-to-terraced-housing/</a></li>
+<li><a href="https://heritagecalling.com/2019/07/29/the-history-of-council-housing/" class="uri">https://heritagecalling.com/2019/07/29/the-history-of-council-housing/</a></li>
+</ul></li>
+<li>A field trip out to identify and different types of house and their characteristics and create a map of where different periods of house building are in the vicinity</li>
+</ul>
 </div><div class="column" style="width:50%;">
-
+<p><img data-src="images/British_Housing.png" style="width:80.0%" data-fig-align="right"><a href="https://files.bregroup.com/bretrust/The-Housing-Stock-of-the-United-Kingdom_Report_BRE-Trust.pdf" class="uri">https://files.bregroup.com/bretrust/The-Housing-Stock-of-the-United-Kingdom_Report_BRE-Trust.pdf</a></p>
 </div>
 </div>
-
-<img src="images/University_College_London_logo.svg" class="slide-logo r-stretch"><div class="footer footer-default">
+</section>
+<section id="how-can-we-investigate-this-in-the-classroom-1" class="slide level2">
+<h2>How can we investigate this in the classroom?</h2>
+<ul>
+<li>National Libaray of Scotland - and unbelieveable resource for historic maps - e.g.&nbsp;Hassocks, 1909</li>
+</ul>
+<p><img data-src="images/HassocksZoom25Inch1909.png" style="width:80.0%" data-fig-align="centre"><a href="https://maps.nls.uk/view/103670803" class="uri">https://maps.nls.uk/view/103670803</a></p>
+</section>
+<section id="how-can-we-investigate-this-in-the-classroom-2" class="slide level2">
+<h2>How can we investigate this in the classroom?</h2>
+<ul>
+<li>Maps from different periods can give clues as to when some of the older local properties might have been built - Hassocks 1937</li>
+</ul>
+<p><img data-src="images/HassocksZoom25Inch1937.png" style="width:80.0%" data-fig-align="centre"><a href="https://maps.nls.uk/view/103670800" class="uri">https://maps.nls.uk/view/103670800</a></p>
+<p><img src="images/University_College_London_logo.svg" class="slide-logo"></p>
+<div class="footer footer-default">
 <p><a href="https://github.com/adamdennett/EPC_Data_Analysis" class="uri">https://github.com/adamdennett/EPC_Data_Analysis</a></p>
 </div>
 </section>
