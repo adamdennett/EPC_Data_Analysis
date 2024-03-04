@@ -29,12 +29,12 @@ slide-number: true
 
 -   Carbon emissions are produced through demand for energy
 
-    -   either directly through burning gas, wood, coal, peat, oil for heat/cooking etc.
-    -   or indirectly through buring these things to produce electricity used in homes
+    -   **directly** through burning gas, wood, coal, peat, oil for heat/cooking etc.
+    -   **indirectly** through burning these things to produce electricity
 
--   Heating (and, increasingly, cooling) + running applicances in residential buildings currently accounts for about 13.7% of the UK's total greenhouse gas emissions
+-   **Residential buildings** currently account for about **13.7%** of the UK's total greenhouse gas emissions - heating, cooling + running applicances
 
--   While Greenhouse Gas emissions have reduced since 1990, housing is now responsible for a greater proportion of our total emissions than ever before - producing around 56 million tons of CO^2^ per year
+-   While Greenhouse Gas emissions have reduced since 1990, housing is now responsible for a greater proportion of our total emissions than ever before - producing around **56 million tons of CO^2^** per year
 :::
 
 ::: {.column width="60%"}
@@ -252,8 +252,7 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 -   Depending on which part of the country you are living in, you are more likely to be living in a particular type and size of property
 -   If we can account for the type, size, age and other characteristics of a property relative to energy efficiency, we can show where energy efficiency is better or worse than we would expect
 
-![](images/Morphology.png){fig-align="left" width="45%"}
-![](images/AvgFloorArea.png){fig-align="right" width="45%"}
+![](images/Morphology.png){fig-align="left" width="45%"} ![](images/AvgFloorArea.png){fig-align="right" width="45%"}
 
 ## Some intitial analysis of the EPC dataset
 
@@ -266,29 +265,24 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
     -   floor area
     -   and which Local Authority the property was found in
 -   The map on the right shows, after controlling for the variables above, relative to Tower Hamlets (the local authority with the overall best Energy Efficiency in England), how many EPC points better or worse on average properties in each Local Authority are
--   The map on the left shows where real average EPC values are lower/worse (<1 - red) or higher/better (>1 - orange to blue) than we might expect, given the housing stock mix. 
-    -    Properties within boroughs in Central London, in particular, Islington, Hackney and Hammersmith and Fulham perform worse than expected, alongside Harlow in Essex, Eastleigh in Hampshire, Norwich, Lincoln and Sunderland
-
+-   The map on the left shows where real average EPC values are lower/worse (\<1 - red) or higher/better (\>1 - orange to blue) than we might expect, given the housing stock mix.
+    -   Properties within boroughs in Central London, in particular, Islington, Hackney and Hammersmith and Fulham perform worse than expected, alongside Harlow in Essex, Eastleigh in Hampshire, Norwich, Lincoln and Sunderland
 :::
 
 ::: {.column width="50%"}
-![](images/EPC_LAD_Intercepts_resids.png){fig-align="right" width="100%"}
-<https://www.ucl.ac.uk/bartlett/casa/publications/2023/may/casa-working-paper-233> 
+![](images/EPC_LAD_Intercepts_resids.png){fig-align="right" width="100%"} <https://www.ucl.ac.uk/bartlett/casa/publications/2023/may/casa-working-paper-233>
 :::
 :::
-
-
 
 ## How can we investigate this in the classroom?
 
 ::: columns
 ::: {.column width="50%"}
--   Investigate the Geography of Housing in your local area 
+-   Investigate the Geography of Housing in your local area
     -   Housing from different periods can be dated by looking at the style of the architecture
-    -   Historic England have fantastic resources on the types of architectural styles common in different periods in the UK - <https://historicengland.org.uk/services-skills/education/images-by-theme/>     -   <https://heritagecalling.com/2019/11/15/a-brief-introduction-to-terraced-housing/>
+    -   Historic England have fantastic resources on the types of architectural styles common in different periods in the UK - <https://historicengland.org.uk/services-skills/education/images-by-theme/> - <https://heritagecalling.com/2019/11/15/a-brief-introduction-to-terraced-housing/>
     -   <https://heritagecalling.com/2019/07/29/the-history-of-council-housing/>
 -   A field trip out to identify and different types of house and their characteristics and create a map of where different periods of house building are in the vicinity
-
 :::
 
 ::: {.column width="50%"}
@@ -296,16 +290,19 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 :::
 :::
 
-
 ## How can we investigate this in the classroom?
 
 -   National Libaray of Scotland - and unbelieveable resource for historic maps - e.g. Hassocks, 1909
 
 ![](images/HassocksZoom25Inch1909.png){fig-align="centre" width="80%"}<https://maps.nls.uk/view/103670803>
 
-
 ## How can we investigate this in the classroom?
 
 -   Maps from different periods can give clues as to when some of the older local properties might have been built - Hassocks 1937
 
 ![](images/HassocksZoom25Inch1937.png){fig-align="centre" width="80%"}<https://maps.nls.uk/view/103670800>
+
+## How can we investigate this in the classroom?
+
+Through Spatial Data Science (Geographic Information Science - GIS - for those of us old enough to remember the last wave of the quantitative revolution!)
+
