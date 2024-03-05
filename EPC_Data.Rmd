@@ -5,6 +5,18 @@ date: "2024-02-22"
 output: html_document
 ---
 
+# Mapping Energy Performance Certificate Data
+
+This guide will walk you through the process of downloading, geo-coding and then mapping data from The UK Government\'s Department for Levelling Up, Housing and Communities (DLUHC) Domestic Energy Performance Certificate (EPC) Data. 
+
+**Part 1** is a guide to downloading EPC and Ordnance Survey's geo-referenced Unique Property Reference Number (UPRN) data from two APIs and linking the two datasets for mapping using R. 
+
+**Part 2** will explain how to load your newly linked data into QGIS and map it, adding additional contextual data from the OS Zoomstack. 
+
+If you are not familiar with R and you want to get straight onto the mapping, download this sample dataset from here and skip straight down to Part 2
+
+# Part 1 - Getting the Data
+
 ## Downloading R and RStudio
 
 To run this tutorial you should download and install both R and RStudio onto your machine. Download and install R before you Download and Install R Studio
@@ -55,7 +67,7 @@ We will be using API keys that you will need to sign up and have an account for.
 
 -   The API documentation is very good, and you can filter your results not just on local authority, but other spatial variables like postcode - or by any of the variables such as type of property (e.g. bungalow), size of property, EPC rating, when the certificate was lodged - or indeed any combination. Use the API documentation to edit the code below.
 
-```{r}
+```{r DownloadEPC, echo=TRUE, message=FALSE, warning=FALSE}
 library(httr)
 library(here)
 library(janitor)
@@ -118,7 +130,7 @@ close(file_conn)
 
 Read the CSV file back in to your environment
 
-```{r}
+```{r ReadCSVBackIn, echo=TRUE, message=FALSE, warning=FALSE}
 library(tidyverse)
 
 epc_data <- read_csv(here("output.csv")) %>% 
@@ -131,7 +143,7 @@ The OS Data Hub has an API which can also be used to download various Open and l
 
 Below we use the `osdatahub` package to download the Open UPRN dataset from the OS servers.
 
-```{r}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(osdatahub)
 library(zip)
 library(tidyverse)
@@ -241,3 +253,5 @@ library(tmap)
 tmap_mode("plot")
 qtm(epc_sf_clip)
 ```
+
+# Part 2 - Making Some Maps

@@ -342,13 +342,21 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ## How can we investigate this in the classroom?
 
+We can use Spatial Data Science - or Geographic Information Science (GIS) for those of us old enough to remember what it used to be called!
+
+![](images/HassocksEPC.png){fig-align="center" width="100%"}
+
+## How can we investigate this in the classroom?
+
 ::: columns
 ::: {.column width="50%"}
--   The map on the right was created entirely with Open Data using Open Source Software that can be used in Schools
--   Data
-    -   EPC data downloaded directly from the Government EPC API - <https://epc.opendatacommunities.org/docs/api/domestic>
-    -   Property locations downloaded from the Ordnance Survey's Open Unique Property Reference Number (UPRN) dataset - <https://www.ordnancesurvey.co.uk/products/os-open-uprn>
-    -   Road, rail, building and surface water data downloaded from Ordnance Survey's free Open ZoomStack dataset - <https://www.ordnancesurvey.co.uk/products/os-open-zoomstack>
+-   This map was created entirely with Open Data using Open Source Software that can be used in Schools
+
+### Data
+
+-   EPC data downloaded directly from the Government EPC API - <https://epc.opendatacommunities.org/docs/api/domestic>
+-   Property locations downloaded from the Ordnance Survey's Open Unique Property Reference Number (UPRN) dataset - <https://www.ordnancesurvey.co.uk/products/os-open-uprn>
+-   Road, rail, building and surface water data downloaded from Ordnance Survey's free Open ZoomStack dataset - <https://www.ordnancesurvey.co.uk/products/os-open-zoomstack>
 :::
 
 ::: {.column width="50%"}
@@ -379,3 +387,5 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 [![](images/dbplyr.png){fig-align="center" width="20%"}](https://dplyr.tidyverse.org/)
 :::
 :::
+
+## How can we investigate this in the classroom?
