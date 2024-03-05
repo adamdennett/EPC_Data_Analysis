@@ -4,3 +4,5 @@
 .Ruserdata
 data/
 keys.r
+epc_coords.csv
+output.csv

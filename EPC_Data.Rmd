@@ -5,22 +5,69 @@ date: "2024-02-22"
 output: html_document
 ---
 
+## Downloading R and RStudio
+
+To run this tutorial you should download and install both R and RStudio onto your machine. Download and install R before you Download and Install R Studio
+
+1.  Download R from here: <https://www.r-project.org/>
+
+2.  Download RStudio from here: <https://posit.co/products/open-source/rstudio/>
+
+If you are unfamiliar with R and RStudio, there are lots of written and video guides out there. Here is an excellent place to start: <https://education.rstudio.com/learn/beginner/>
+
+Before going any further, make sure you are happy with writing and saving code in .r or .rmd files in a working directory, installing and librarying packages, running basic scripts.
+
+## Creating a file to store your API keys
+
+We will be using API keys that you will need to sign up and have an account for.
+
+1.  Visit - <https://epc.opendatacommunities.org/> - and sign-up so you can access the data
+
+2.  Once signed up, sign in and wait for the email link to be sent to you to connect to the data interface
+
+3.  Scroll to the very bottom of the Domestic EPC search front page - here you should find your api key, however, click on the developer API key link below that which should take you to this page - <https://epc.opendatacommunities.org/docs/api>
+
+4.  Click on the Domestic Energy Performance Certificates API link, which should take you to this page - <https://epc.opendatacommunities.org/docs/api/domestic>
+
+5.  Open a new R Script file in RStudio - here you will save the various API key and token information you will need to access the API. Call this file keys.r and save it to your working directory
+
+6.  Back on the domestic EPC API page, it will give you information about your API username (probably your email address you signed up with) and your API key. It will also give you two authentication tokens. You need to save these in your new keys.r file.
+
+7.  In your new keys.r file, create 4 new variables and assign them the various keys and tokens you have been given, exactly as below (don't forget the quotation marks!):
+
+    -   epc_user \<- "your_email\@your_domain.com"
+
+    -   epc_api_key \<- "3a9f3fc...................................."
+
+    -   epc_auth_token \<- "YS5kZW............................"
+
+    -   epc_auth \<- "Basic YS5kZW5..........................."
+
+8.  Save your keys.r file and close it.
+
 ## Downloading EPC Data using the API
 
-The code below (translated into R from the python examples given here: <https://epc.opendatacommunities.org/docs/api/domestic>) will download all of the data for a particular local authority of interest:
+-   The code below (translated into R - thanks ChatGPT - from the python examples given here: <https://epc.opendatacommunities.org/docs/api/domestic>) will download all of the data for a particular local authority of interest.
+
+-   Before running this script, make sure you have installed the three packages that are libraried at the start.
+
+-   This script downloads data for one particular local authority in the UK - Mid Sussex - code E07000228. If you want to download data for another local authority, simply change the code - <https://www.get-information-schools.service.gov.uk/Guidance/LaNameCodes>
+
+-   The API documentation is very good, and you can filter your results not just on local authority, but other spatial variables like postcode - or by any of the variables such as type of property (e.g. bungalow), size of property, EPC rating, when the certificate was lodged - or indeed any combination. Use the API documentation to edit the code below.
 
 ```{r}
 library(httr)
 library(here)
 library(janitor)
 
+#read in and store the variables you have just created for your API keys
 source("keys.r")
 
 # Page size (max 5000)
 query_size <- 5000
 
 #I am using the Here package to put the CSV downloaded into a specific folder inside the current here() route - you will probably want to put yours somewhere else. Check there here package for details on how this works. 
-output_file <- here("content", "teaching", "2024-02-20-EPC_Data", "data", "output.csv")
+output_file <- here("output.csv")
 
 # Base url and example query parameters
 base_url <- 'https://epc.opendatacommunities.org/api/v1/domestic/search'
@@ -74,20 +121,20 @@ Read the CSV file back in to your environment
 ```{r}
 library(tidyverse)
 
-epc_data <- read_csv(here("content", "teaching", "2024-02-20-EPC_Data", "data", "output.csv")) %>% 
+epc_data <- read_csv(here("output.csv")) %>% 
   clean_names()
 ```
 
 ## Get UPRN Data from the OS API
 
-The osdatahub package makes this much easier to achieve.
+The OS Data Hub has an API which can also be used to download various Open and licence restricted datasets - <https://osdatahub.os.uk/> - using the API directly to access the data requires an amount of specialist knowledge (although there is some work in progress documentation here - <https://github.com/howaskew/OSapiR>), however colleagues at OS have also created an R package called `osdatahub` - <https://cran.r-project.org/web/packages/osdatahub/index.html> (versions are also available in Python and Javascript - <https://github.com/OrdnanceSurvey/os-api-resources>)
+
+Below we use the `osdatahub` package to download the Open UPRN dataset from the OS servers.
 
 ```{r}
 library(osdatahub)
 library(zip)
-
-#API key - although this isn't needed for the open data
-key <- os_auth
+library(tidyverse)
 
 #get a list of the open datasets
 list_os_opendata()
@@ -119,15 +166,26 @@ uprn_data <- read_csv(file.path(tempdir(), csv_file)) %>%
 
 ```
 
-Get some Local Authority Boundaries
+## Joining EPC data to UPRN data and cleaning for mapping
+
+-   First we will get some Local Authority Boundaries from the Office for National Statistics to 'trim' our EPC data with. Sometimes, due to errors in UPRN address matching, some properties are outside of the local authority we are interested in, so we need to drop these from our analysis dataset (we could try to fix, but this will take too long in this example so we'll just drop them).
+
+-   Visit the ONS Geoportal website - <https://geoportal.statistics.gov.uk/> - and navigate to a recent set of Local Authority District Boundaries - we'll go for the ones that are 'Full extent of the realm and clipped (BFC)' - at the time of writing, the latest available are from 2023, so we'll use those.
+
+-   If you click on the dataset, you should be presented with a map page - for example, like this: <https://geoportal.statistics.gov.uk/datasets/2f0b8074b6ab4af6a1ec30eb66317d12_0/explore?location=54.959083%2C-3.316939%2C6.21>
+
+-   At the bottom of the page, clicking on the "I want to use this" button reveals - under the 'View API Resources' button - a URL to a GeoJson file that you can download. You can copy this and paste it in the code as below
+
+-   Be warned - occasionally the URL strings to these files change and the files themselves break. If this happens, try again with another dataset - perhaps from a different year or month. Eventually you should find one that works.
 
 ```{r}
 library(geojsonsf)
 library(tmap)
 
-#download these from the ONS Geoportal
-LAD_sf <- geojson_sf("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_December_2023_Boundaries_UK_BFC/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson") 
+#download some local authority boundaries from the ONS Geoportal
+LAD_sf <- geojson_sf("https://services1.arcgis.com/ESMARspQHYMw9BZ9/arcgis/rest/services/Local_Authority_Districts_May_2023_UK_BFC_V2/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson") 
 
+#just plot the boundaries quickly to see if they have downloaded OK
 qtm(LAD_sf)
 
 # filter for Mid-Sussex again
@@ -136,20 +194,27 @@ Local_sf <- LAD_sf %>% filter(LAD23CD == "E07000228")
 qtm(Local_sf)
 ```
 
-Now we can join some coordinates to our EPC data to enable some mapping
+Now we can join some coordinates to our trimmed EPC data to enable us to map it.
 
 ```{r}
+
+#first have a look at the columns within the file. This should tell you that in both files, there are columns called "uprn" - if you haven't cleaned the column headers with janitor, they could be capitalised or something else. 
 str(epc_data)
 str(uprn_data)
 
-#filter out all of the rows without uprns (and therefore coordinates)
+#Join the epc_data and uprn_data files together using a left_join() function. Join on the common UPRN identifier. Then, immediately filter out all of the rows without uprns (and therefore coordinates) by piping the newly joined data into a filter function
 epc_coords <- left_join(epc_data, uprn_data, by = join_by(uprn == uprn)) %>% 
   filter(!is.na(uprn))
 
-write_csv(epc_coords, here("content", "teaching", "2024-02-20-EPC_Data", "data", "epc_coords.csv"))
+#now write your new clean, joined data file out to a CSV
+write_csv(epc_coords, here("epc_coords.csv"))
 ```
 
-Now we can map it!
+## Mapping Your New Data
+
+-   It is possible to map your data directly in R, however, in this exercise we are going to eventually map it in QGIS.
+
+-   We can have a quick glimpse at the data though by converting our new joined dataset into a simple features (sf) object and viewing it.
 
 ```{r}
 library(sf)

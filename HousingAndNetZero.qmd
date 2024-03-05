@@ -315,11 +315,11 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ::: columns
 ::: {.column width="50%"}
--   Investigate the Geography of Housing in your local area
+-   Investigate the Geography of Housing and potential energy performance in your local area
     -   Housing from different periods can be dated by looking at the style of the architecture
     -   Historic England have fantastic resources on the types of architectural styles common in different periods in the UK - <https://historicengland.org.uk/services-skills/education/images-by-theme/> - <https://heritagecalling.com/2019/11/15/a-brief-introduction-to-terraced-housing/>
     -   <https://heritagecalling.com/2019/07/29/the-history-of-council-housing/>
--   A field trip out to identify and different types of house and their characteristics and create a map of where different periods of house building are in the vicinity
+-   A field trip out to identify and different types of house and their characteristics (double or single glazing, detached, semi-detached etc.) and create a map of where different periods of house building are in the vicinity
 :::
 
 ::: {.column width="50%"}
@@ -329,6 +329,7 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ## How can we investigate this in the classroom?
 
+-   How old is the housing in your area?
 -   National Libaray of Scotland - and unbelieveable resource for historic maps - e.g. Hassocks, 1909
 
 ![](images/HassocksZoom25Inch1909.png){fig-align="centre" width="80%"}<https://maps.nls.uk/view/103670803>
@@ -341,4 +342,40 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ## How can we investigate this in the classroom?
 
-Through Spatial Data Science (Geographic Information Science - GIS - for those of us old enough to remember the last wave of the quantitative revolution!)
+::: columns
+::: {.column width="50%"}
+-   The map on the right was created entirely with Open Data using Open Source Software that can be used in Schools
+-   Data
+    -   EPC data downloaded directly from the Government EPC API - <https://epc.opendatacommunities.org/docs/api/domestic>
+    -   Property locations downloaded from the Ordnance Survey's Open Unique Property Reference Number (UPRN) dataset - <https://www.ordnancesurvey.co.uk/products/os-open-uprn>
+    -   Road, rail, building and surface water data downloaded from Ordnance Survey's free Open ZoomStack dataset - <https://www.ordnancesurvey.co.uk/products/os-open-zoomstack>
+:::
+
+::: {.column width="50%"}
+![](images/HassocksEPC.png){fig-align="center" width="100%"}
+:::
+:::
+
+## How can we investigate this in the classroom?
+
+::: columns
+::: {.column width="50%"}
+### Software
+
+-   Map produced using QGIS and the Vector Tiles Reader plugin to allow you to read Open Zoomstack data from the OS server
+-   EPC Data downloaded from the EPC Open Data Communities API using R and RStudio and a couple of useful R packages (and ChatGPT which helped me translate the incredibly helpful Python example code on the API website into R).
+-   UPRN Data downloaded from the OS Open Data API with the help of the `osdatahub` package for R made by Ordnance Survey
+-   EPC and UPRN data joined in R with the help of the `dplyr` package
+-   All code for downloading this data or data for other local authorities with some minor tweaks, can be found on github - <https://github.com/adamdennett/EPC_Data_Analysis>
+:::
+
+::: {.column width="50%"}
+[![](images/qgis-logo.png){fig-align="center" width="40%"}](https://qgis.org/en/site/index.html)
+
+[![](images/R_logo.svg.png){fig-align="center" width="20%"}](https://www.r-project.org/)
+
+[![](images/RStudio-Logo-Flat.png){fig-align="center" width="40%"}](https://posit.co/products/open-source/rstudio/)
+
+[![](images/dbplyr.png){fig-align="center" width="20%"}](https://dplyr.tidyverse.org/)
+:::
+:::
