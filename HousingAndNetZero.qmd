@@ -375,6 +375,7 @@ We can use Spatial Data Science - or Geographic Information Science (GIS) for th
 -   UPRN Data downloaded from the OS Open Data API with the help of the `osdatahub` package for R made by Ordnance Survey
 -   EPC and UPRN data joined in R with the help of the `dplyr` package
 -   All code for downloading this data or data for other local authorities with some minor tweaks, can be found on github - <https://github.com/adamdennett/EPC_Data_Analysis>
+-   A walk-through guide can be found here: <https://adamdennett.github.io/EPC_Analysis_Website/_site/EPCSpatialAnalysis.html>
 :::
 
 ::: {.column width="50%"}
