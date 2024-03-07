@@ -1,19 +1,17 @@
 ---
-title: "Building Energy Performance Analysis"
+title: "Spatial Analysis of Building Energy Performance"
 author: "Adam Dennett"
-date: "2024-02-22"
-output: html_document
+format: html
+editor: visual
 ---
 
-# Mapping Energy Performance Certificate Data
+This guide will walk you through the process of downloading, geo-coding and then mapping data from The UK Government's Department for Levelling Up, Housing and Communities (DLUHC) Domestic Energy Performance Certificate (EPC) Data.
 
-This guide will walk you through the process of downloading, geo-coding and then mapping data from The UK Government's Department for Levelling Up, Housing and Communities (DLUHC) Domestic Energy Performance Certificate (EPC) Data. 
+**Part 1** is a guide to downloading EPC and Ordnance Survey's geo-referenced Unique Property Reference Number (UPRN) data from two APIs and linking the two datasets for mapping using R.
 
-**Part 1** is a guide to downloading EPC and Ordnance Survey's geo-referenced Unique Property Reference Number (UPRN) data from two APIs and linking the two datasets for mapping using R. 
+**Part 2** will explain how to load your newly linked data into QGIS and map it, adding additional contextual data from the OS Zoomstack.
 
-**Part 2** will explain how to load your newly linked data into QGIS and map it, adding additional contextual data from the OS Zoomstack. 
-
-If you are not familiar with R and you want to get straight onto the mapping, download this sample dataset from here and skip straight down to Part 2
+If you are not familiar with R and you want to get straight onto the mapping, download this sample dataset from [here](https://www.dropbox.com/scl/fi/e7hfs638s4f0yf2z5scux/epc_coords.csv?rlkey=klvqophka7r3o3tsb4sv2nfik&dl=0) and skip straight down to [Part 2 - Making Some Maps]
 
 # Part 1 - Getting the Data
 
@@ -143,13 +141,13 @@ The OS Data Hub has an API which can also be used to download various Open and l
 
 Below we use the `osdatahub` package to download the Open UPRN dataset from the OS servers.
 
-```{r echo=TRUE, eval=F, message=FALSE, warning=FALSE}
+```{r echo=TRUE, message=FALSE, warning=FALSE}
 library(osdatahub)
 library(zip)
 library(tidyverse)
 
-#get a list of the open datasets
-list_os_opendata()
+#get a list of the open datasets - uncomment to see
+#list_os_opendata()
 
 #we're interested in the OpenUPRN dataset, so get all of the relevant info into an object
 uprn = list_os_opendata('OpenUPRN')
@@ -175,7 +173,6 @@ unzip(zipfile = zip_file, exdir = tempdir())
 # Read data from the CSV file
 uprn_data <- read_csv(file.path(tempdir(), csv_file)) %>% 
   clean_names()
-
 ```
 
 ## Joining EPC data to UPRN data and cleaning for mapping
@@ -208,12 +205,14 @@ qtm(Local_sf)
 
 Now we can join some coordinates to our trimmed EPC data to enable us to map it.
 
-```{r}
-
+```{r echo=TRUE, eval=FALSE, message=FALSE, warning=FALSE}
 #first have a look at the columns within the file. This should tell you that in both files, there are columns called "uprn" - if you haven't cleaned the column headers with janitor, they could be capitalised or something else. 
 str(epc_data)
 str(uprn_data)
 
+```
+
+```{r}
 #Join the epc_data and uprn_data files together using a left_join() function. Join on the common UPRN identifier. Then, immediately filter out all of the rows without uprns (and therefore coordinates) by piping the newly joined data into a filter function
 epc_coords <- left_join(epc_data, uprn_data, by = join_by(uprn == uprn)) %>% 
   filter(!is.na(uprn))
@@ -240,12 +239,9 @@ Local_sf <- st_transform(Local_sf, 27700)
 
 #clip it as some weird places are in the dataset - data errors. 
 epc_sf_clip <- epc_sf[Local_sf,]
-
-
 ```
 
 ```{r}
-
 #try and map it with tmap
 library(tmap)
 
