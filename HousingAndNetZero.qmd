@@ -390,3 +390,5 @@ We can use Spatial Data Science - or Geographic Information Science (GIS) for th
 :::
 
 ## How can we investigate this in the classroom?
+
+New text
