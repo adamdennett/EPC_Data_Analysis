@@ -223,9 +223,10 @@ But is this enough and how are they going to achieve it?
     -   ventilation
     -   air-tightness
 -   upgrading
-    -   heating (e.g. to heat-pumps),
+    -   heating (e.g. to heat-pumps)
     -   lighting (LED bulbs)
-    -   installing smart thermostat and heat control devices.
+    -   installing smart thermostat and heat control devices
+    -   installing solar panels
 -   Any one could improve energy efficiency, but doing all at once is known as 'Deep Retrofit.'
 :::
 
