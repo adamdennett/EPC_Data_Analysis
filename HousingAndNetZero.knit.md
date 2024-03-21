@@ -24,6 +24,11 @@ slide-number: true
 ## About Me
 
 -   Professor of Urban Analytics in the [Bartlett Centre for Advanced Spatial Analysis (CASA)](https://www.ucl.ac.uk/bartlett/casa/), University College London
+-   Just stood down after 5-years of being Head of Department for CASA
+    -   Arrived as post-doc in 2010 (same day and same project as Hannah Fry - who has gone on to do OK for herself!)
+    -   Grown to 18 full-time academics (3 in 2010!)
+    -   150 Masters Students across 2 MSc Programmes
+    -   20-odd PhD students
 -   Lifetime geographer - although didn't ever really have any plans to be, it just sort of happened!
 
 ::: {#centre_text style="text-align: center; font-size: xxx-large"}
@@ -178,14 +183,13 @@ But is this enough and how are they going to achieve it?
 ::: {.column width="50%"}
 -   'Retrofitting' -\> process of improving:
     -   insulation
-    -   ventilation 
+    -   ventilation
     -   air-tightness
--   upgrading 
-    -   heating (e.g. to heat-pumps), 
-    -   lighting (LED bulbs) 
+-   upgrading
+    -   heating (e.g. to heat-pumps),
+    -   lighting (LED bulbs)
     -   installing smart thermostat and heat control devices.
 -   Any one could improve energy efficiency, but doing all at once is known as 'Deep Retrofit.'
-
 :::
 
 ::: {.column width="50%"}
@@ -204,25 +208,24 @@ But is this enough and how are they going to achieve it?
 
 [![](images/cost_breakdown_retrofit.png){fig-align="center" width="100%"}](https://the3cities.co.uk/retrofit)
 
-
 ## What needs to be done?
 
 ::: columns
 ::: {.column width="50%"}
 -   Insulate Britain - pressure group - Estimates that 1.5 homes per minute need to be retrofitted up until 2050 to hit our legally-binding net-zero target - something that we are currently far from achieving.
--   Retrofit is expensive 
+-   Retrofit is expensive
 -   Route retrofit unclear for many people (where should I start, who can do it for me?)
--   Central government needs to develop proper incentives 
-    -   Direct funding (grants) 
-    -   or tax incentives 
+-   Central government needs to develop proper incentives
+    -   Direct funding (grants)
+    -   or tax incentives
 -   Schemes such as those available in Ireland (where government recommends suppliers, installers etc.) needed to help people get started
 -   Insulate Britain highlights that UK government currently doesn't have a long-term strategy or funding mechanism in place to upgrade/retrofit homes to meet our climate commitments - write to your MPs!
 :::
 
 ::: {.column width="50%"}
-[![](images/InsulateBritain.jpg){fig-align="center" width="100%"}](https://insulatebritain.com/)
+[![](images/InsulateBritain.jpg){fig-align="center" width="70%"}](https://insulatebritain.com/)
 
-<https://insulatebritain.com/>
+[![](images/guardian_insulate.png)](https://www.theguardian.com/environment/2023/apr/09/uk-insulation-scheme-would-take-300-years-to-meet-its-own-targets-say-critics)
 :::
 :::
 
@@ -232,9 +235,9 @@ But is this enough and how are they going to achieve it?
 ::: {.column width="50%"}
 -   More or less energy efficient homes are not spread evenly across the country - some places and some types of neighbourhood are more or less likely to have energy efficient homes
 
--   If we can understand *where* the problem is most acute and how much we might need to do in different places, we can begin to put pressure on the government or the local countil to make better policy / invest funds in a more targeted way
+-   If we can understand ***where*** the problem is most acute and how much we might need to do in different places, we can begin to put pressure on the government or the local countil to make better policy / invest funds in a more targeted way
 
--   If we can explain what the problem is in our local area, we stand a better chance of trying to solve it
+-   If we can describe the extent of the problem is in our local area, we stand a better chance of trying to solve it
 
 -   We can contact our local councilors and MPs to ask them make improving housing in our area more of a priority
 :::
@@ -250,7 +253,7 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ::: columns
 ::: {.column width="50%"}
--   The Department for Levelling Up, Housing and Communities (DLUHC) collects and maintains data on every Energy Performance Certificate issued in England and Wales. The database is available as Open Data for anyone to explore and analyse.
+-   [The Department for Levelling Up, Housing and Communities (DLUHC)](https://www.gov.uk/housing-local-and-community/energy-efficiency-in-buildings) collects and maintains data on every Energy Performance Certificate issued in England and Wales. The database is available as Open Data for anyone to explore and analyse.
 
 -   The latest edition of the EPC dataset (Version 10) contains some 25 million records (some repeat entries) which equate to about 14 million residential properties in the England and Wales - just over 50% of the 26.7 million that exist.
 
@@ -267,7 +270,7 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 ::: columns
 ::: {.column width="40%"}
 -   We analysed 14m properties in the EPC dataset
--   Energy Efficiency is strongly correleated with the age of the property - older properties are on average less energy efficient, more modern properties are more energy efficient
+-   **Energy Efficiency is strongly correleated with the age of the property** - older properties are on average less energy efficient, more modern properties are more energy efficient
 -   Band C (69 and above) is the government target for efficient homes.
     -   If your property was built after 2003, you have a very high probability of being band C or higher
     -   As properties get older the variation in their efficiency gets greater, but the probability of being band C or above gets much lower.
@@ -283,7 +286,7 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ::: columns
 ::: {.column width="50%"}
--   Tenure: Whether the house is owner-occupied, privately rented or socially rented is also very important - Social rented housing has far better energy efficiency than all other housing tenures
+-   Tenure: Whether the house is owner-occupied, privately rented or socially rented is also very important - **Socially rented housing has far better energy efficiency** than all other housing tenures
 -   Various reasons for this:
     -   social landlords more conscious of the needs of residents, some large retrofit programmes
     -   social housing more likely to be flats
@@ -299,8 +302,8 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 ::: columns
 ::: {.column width="50%"}
 -   The type of property - i.e. whether it is a flat, detached, semi-detached or terraced house is important (the fewer outside walls the better!)
--   Older detached housing with more external walls and larger floor areas has the worst energy efficieny - even some modern detached housing has poor energy efficiency (Bottom Right)
--   Terraced flats and masionettes with fewer external walls and smaller floor areas have the best energy efficiency, with even older properties more likely to be rated C or above than some more modern terraced and semi-detached housing
+-   **Older detached housing with more external walls and larger floor areas has the worst energy efficiency** - even some modern detached housing has poor energy efficiency (Bottom Right)
+-   Terraced flats and maisonettes with fewer external walls and smaller floor areas have the best energy efficiency, with even older properties more likely to be rated C or above than some more modern terraced and semi-detached housing
 :::
 
 ::: {.column width="50%"}
@@ -319,15 +322,15 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 ::: columns
 ::: {.column width="50%"}
--   In this piece of analysis we built a statistical model that predicted building energy efficiency as a function of:
+-   In this piece of analysis we built a statistical model that predicted building energy efficiency as a function of building characteristics:
     -   age
     -   dwelling type
     -   tenure
     -   floor area
     -   and which Local Authority the property was found in
--   The map on the right shows, after controlling for the variables above, relative to Tower Hamlets (the local authority with the overall best Energy Efficiency in England), how many EPC points better or worse on average properties in each Local Authority are
--   The map on the left shows where real average EPC values are lower/worse (\<1 - red) or higher/better (\>1 - orange to blue) than we might expect, given the housing stock mix.
-    -   Properties within boroughs in Central London, in particular, Islington, Hackney and Hammersmith and Fulham perform worse than expected, alongside Harlow in Essex, Eastleigh in Hampshire, Norwich, Lincoln and Sunderland
+-   Map on the right: Expected avg EPC points better or worse (per property) than Tower Hamlets (best local authority) - after controlling for building characteristics
+-   Map on the left: residuals - where actual avg EPC values are lower/worse (\<1 - red) or higher/better (\>1 - orange to blue) than we might expect, given the housing stock mix.
+    -   Central London, in particular, Islington, Hackney and Hammersmith and Fulham performs worse than expected, alongside Harlow in Essex, Eastleigh in Hampshire, Norwich, Lincoln and Sunderland
 :::
 
 ::: {.column width="50%"}
@@ -364,7 +367,7 @@ Average Energy Efficiency and Environmental Impact by Local Authority - Source, 
 
 -   Maps from different periods can give clues as to when some of the older local properties might have been built - Hassocks 1937
 
-![](images/HassocksZoom25Inch1937.png){fig-align="centre" width="70%"} 
+![](images/HassocksZoom25Inch1937.png){fig-align="centre" width="70%"}
 
 <https://maps.nls.uk/view/103670800>
 
@@ -402,8 +405,6 @@ We can use Spatial Data Science - or Geographic Information Science (GIS) for th
 -   EPC Data downloaded from the EPC Open Data Communities API using R and RStudio and a couple of useful R packages (and ChatGPT which helped me translate the incredibly helpful Python example code on the API website into R).
 -   UPRN Data downloaded from the OS Open Data API with the help of the `osdatahub` package for R made by Ordnance Survey
 -   EPC and UPRN data joined in R with the help of the `dplyr` package
--   All code for downloading this data or data for other local authorities with some minor tweaks, can be found on github - <https://github.com/adamdennett/EPC_Data_Analysis>
--   A walk-through guide can be found [here](https://adamdennett.github.io/EPC_Analysis_Website/_site/EPCSpatialAnalysis.html)
 :::
 
 ::: {.column width="50%"}
@@ -419,5 +420,28 @@ We can use Spatial Data Science - or Geographic Information Science (GIS) for th
 
 ## How can we investigate this in the classroom?
 
-New text
+::: columns
+::: {.column width="50%"}
+-   All code for downloading EPC data or data for other local authorities with some minor tweaks, can be found on github - <https://github.com/adamdennett/EPC_Data_Analysis>
+-   A walk-through guide can be found [here](https://adamdennett.github.io/EPC_Analysis_Website/_site/EPCSpatialAnalysis.html) (or click on the image opposite)
+:::
+
+::: {.column width="50%"}
+[![](images/DataAndMapping.png)](https://adamdennett.github.io/EPC_Analysis_Website/_site/EPCSpatialAnalysis.html)
+:::
+:::
+
+## Conclusions & Questions
+
+-   The UK has a problem with poorly insulated, leaky homes
+
+-   If we are to hit our net-zero targets, UK needs a huge housing retrofit programme that it currently doesn't have
+
+-   Data on the energy performance of homes in the UK are very good, but under-used
+
+-   As Geographers, we can analyse this data to help us understand the extent of the challenge in our local area
+
+-   Once we can describe the extent of the problem, we can use this information to raise awareness help encourage local politicians and policy makers to prioritise support for local residents to improve their homes.
+
+-   Any Questions?
 
