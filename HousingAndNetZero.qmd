@@ -230,7 +230,7 @@ But is this enough and how are they going to achieve it?
 :::
 
 ::: {.column width="50%"}
-[![](images/HomeRetrofit.png){fig-align="center" width="100%"}](https://woodknowledge.wales/gw4-alliance-led-project-to-retrofit-uk-homes/)
+[![](images/HomeRetrofit.png)](https://woodknowledge.wales/gw4-alliance-led-project-to-retrofit-uk-homes/)
 :::
 :::
 
@@ -243,7 +243,9 @@ But is this enough and how are they going to achieve it?
 -   But, retrofitting is expensive (up-front cost) - [recent estimates](https://residential.jll.co.uk/insights/research/decarbonising-uk-housing-2024) are that the average cost of retrofitting a property to Grade C or above would cost ***£35,000*** - even basic insulation costs can run into many thousands of pounds.
 -   Saving money on heating will eventually make this money back, but it could take many years
 
-[![](images/cost_breakdown_retrofit.png){fig-align="center" width="100%"}](https://the3cities.co.uk/retrofit)
+[![](images/cost_breakdown_retrofit.png){fig-align="center"}](https://the3cities.co.uk/retrofit/)
+
+<https://the3cities.co.uk/retrofit>
 
 ## What needs to be done?
 
