@@ -3,6 +3,7 @@ title: "EPC Data Analysis"
 description: "Analysis and presentation materials for working with Energy Performance Certificate (EPC) data — including a Housing and Net Zero deck and a walk-through of the EPC dataset for England and Wales."
 type: project
 image: images/EPC_Age_Type.png
+permalink: /
 ---
 
 # EPC Data Analysis
